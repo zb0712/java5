@@ -1,0 +1,47 @@
+server:
+  port: 8081
+  servlet:
+    session:
+      cookie:
+        name: "JESSIONIDBF"
+spring:
+  profiles:
+    active: dev
+  datasource:
+    username: root
+    password: 6592
+    url: jdbc:mysql://localhost:3306/java5?serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mail:
+    host: smtp.qq.com
+    port: 465
+    username: "1099441055@qq.com"
+    protocol: smtp
+    password: maeyfitpgockgadg
+    default-encoding: utf-8
+    properties:
+      mail:
+        debug: true
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+jwt:
+  tokenHeader: Authorization #JWT储存的请求头
+  secret: java5_secret #密钥
+  expiration: 604800 #过期时间
+  tokenHead: Bearer #JWT 负载中拿到开头
+
+
+
+
