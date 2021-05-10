@@ -156,7 +156,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         examMapper.insert(exam1);
         Exam examBySelect = examMapper.selectOne(new QueryWrapper<Exam>().eq("exam_name", examName).eq("department_id", departmentId));
         List<StuDepartment> stuDepartments = stuDepartmentMapper.selectList(new QueryWrapper<StuDepartment>().eq("department_id", departmentId).eq("status", "examing"));
-        if (stuDepartments == null) {
+        if (stuDepartments.size() == 0) {
             return Result.error("无符合考核条件的成员，无法发布考核");
         }
         StuExam stuExam = new StuExam();
